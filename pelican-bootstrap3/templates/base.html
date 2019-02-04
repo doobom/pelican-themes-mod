@@ -112,6 +112,7 @@
         <link href="{{ SITEURL }}/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {%- endif %}
+{% include 'includes/disqus_script.html' %}
 
 </head>
 <body>
@@ -232,7 +233,6 @@
     <script src="/{{ THEME_STATIC_DIR }}/js/bodypadding.js"></script>
 {% endif %}
 {% include 'includes/sidebar/github-js.html' %}
-{% include 'includes/disqus_script.html' %}
 {% include 'includes/ga.html' %}
 {% include 'includes/piwik.html' %}
 

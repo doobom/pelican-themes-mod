@@ -2,7 +2,22 @@
     <hr/>
     <section class="comments" id="comments">
         <h2>{{ _('Comments') }}</h2>
-
+	<div id="discomment"></div>
+	<script type="text/javascript">
+	    var disq = new iDisqus('discomment',{
+		forum: '{{ DISQUS_SITENAME }}dis',
+		site: '{{ SITEURL }}',
+		api: 'https://disqus.def.run/{{ DISQUS_PHP_API_NAME }}',
+		url: '/{{ article.url }}',
+		mode: 3,
+		timeout: 3000,
+		init: true,
+		emojiPreview: true
+	    });
+	    disq.count();
+	</script>
+	<noscript>Please enable JavaScript to view the comments.</noscript>
+	<!--
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
@@ -41,5 +56,5 @@
             Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-    </section>
+    </section> -->
 {% endif %}
