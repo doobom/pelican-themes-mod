@@ -12,14 +12,17 @@
         data-orientation="{{ SHARIFF_ORIENTATION }}"
         {% endif %}
         {% if SHARIFF_SERVICES %}
-        data-services = "{{ SHARIFF_SERVICES }}"
+        data-services="{{ SHARIFF_SERVICES }}"
         {% endif %}
         {% if SHARIFF_THEME %}
         data-theme="{{ SHARIFF_THEME }}"
         {% endif %}
+	{% if SHARIFF_BUTTON_STYLE %}
+	data-button-style="{{ SHARIFF_BUTTON_STYLE }}"
+	{% endif %}
         {% if SHARIFF_TWITTER_VIA|default(false) %}
         data-twitter-via="{{ TWITTER_USERNAME }}"
         {% endif %}
-        data-url="{{ SITEURL }}/{{ article.url }}"></div>
+        data-url="{{ SITEURL }}/{{ article.url }}" data-title="{{ article.title }}"></div>
     <!-- Shariff Button END -->
 {% endif %}
