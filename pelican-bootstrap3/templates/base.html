@@ -85,12 +85,12 @@
     {% endif %}
 
     {% if FEED_ALL_ATOM %}
-        <link href="{{ SITEURL }}/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
+        <link href="/{{ FEED_ALL_ATOM }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} ATOM Feed"/>
     {% endif %}
 
     {% if FEED_ALL_RSS %}
-        <link href="{{ SITEURL }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
+        <link href="/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate"
               title="{{ SITENAME }} RSS Feed"/>
     {% endif %}
 
@@ -100,7 +100,7 @@
         {%- else %}
             {%- set tag_feed_atom = TAG_FEED_ATOM.format(tag.slug) %}
         {%- endif %}
-        <link href="{{ SITEURL }}/{{ tag_feed_atom }}" type="application/atom+xml" rel="alternate"
+        <link href="/{{ tag_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ tag }} ATOM Feed"/>
     {%- endif %}
     {%- if category and CATEGORY_FEED_ATOM %}
@@ -109,7 +109,7 @@
         {%- else %}
             {%- set category_feed_atom = CATEGORY_FEED_ATOM.format(category.slug) %}
         {%- endif %}
-        <link href="{{ SITEURL }}/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
+        <link href="/{{ category_feed_atom }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
     {%- endif %}
 {% include 'includes/disqus_script.html' %}

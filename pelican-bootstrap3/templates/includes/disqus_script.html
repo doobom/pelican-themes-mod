@@ -1,6 +1,13 @@
 {% if DISQUS_SITENAME %}
+
     <!-- Disqus -->
-    <!-- <script type="text/javascript">
+
+    {% if DISQUS_PHP_PROXY %}
+    <link rel="stylesheet" href="{{ DISQUS_PHP_PROXY_URL }}/dist/iDisqus.min.css" />
+    <script type="text/javascript" src="{{ DISQUS_PHP_PROXY_URL }}/dist/iDisqus.js"></script>
+    {% else %}
+    
+    <script type="text/javascript">
         /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
         var disqus_shortname = '{{ DISQUS_SITENAME }}'; // required: replace example with your forum shortname
 
@@ -12,8 +19,8 @@
             s.src = '//' + disqus_shortname + '.disqus.com/count.js';
             (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
         }());
-    </script> -->
-    <link rel="stylesheet" href="https://disqus.def.run/dist/iDisqus.min.css" />
-    <script type="text/javascript" src="https://disqus.def.run/dist/iDisqus.js"></script>
+    </script>
+    {% endif %}
+
     <!-- End Disqus Code -->
 {% endif %}
