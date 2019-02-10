@@ -3,14 +3,24 @@
 {% block title %}
 {{ _('Search') }} - {{ super() }}
 {% endblock %}
-
-{% block scripts %}
+{% block tipue_search %}
     {% if 'assets' in PLUGINS %}
     {% include 'includes/minify_tipuesearch.html' with context %}
     {% else %}
     <script type="text/javascript" src="/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_set.js"></script>
     <script type="text/javascript" src="/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.min.js"></script>
+    
+    {#<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+
+    <script src="/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch_set.js"></script>
+    <script src="/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.min.js"></script>#}
     {% endif %}
+    <link href="/{{ THEME_STATIC_DIR }}/tipuesearch/normalize.min.css" />
+    <script src="/tipuesearch_content.js"></script>
+{% endblock %}
+{% block scripts %}
+{#
     <script>
     $(document).ready(function() {
       $('#tipue_search_input').tipuesearch({
@@ -19,6 +29,11 @@
         'newWindow': false,
         'contentLocation': 'tipuesearch_content.json'
       });
+    });
+    </script>#}
+    <script>
+    $(document).ready(function() {
+      $('#tipue_search_input').tipuesearch();
     });
     </script>
 {% endblock %}

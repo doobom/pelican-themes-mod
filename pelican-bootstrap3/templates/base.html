@@ -59,6 +59,7 @@
     {% endif %}
 
     <!-- Bootstrap -->
+    <script src="/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
     {% if BOOTSTRAP_THEME %}
         <link rel="stylesheet" href="/{{ THEME_STATIC_DIR }}/css/bootstrap.{{ BOOTSTRAP_THEME }}.min.css" type="text/css"/>
     {% else %}
@@ -67,9 +68,9 @@
     <link href="/{{ THEME_STATIC_DIR }}/css/font-awesome.min.css" rel="stylesheet">
 
     <link href="/{{ THEME_STATIC_DIR }}/css/pygments/{{ PYGMENTS_STYLE|default('native') }}.css" rel="stylesheet">
+    {% block tipue_search %}{% endblock %}
     {% if 'tipue_search' in PLUGINS %}
     <link href="/{{ THEME_STATIC_DIR }}/tipuesearch/tipuesearch.css" rel="stylesheet">
-    <script type="text/javascript" src="/tipuesearch_content.js"></script>
     {% endif %}
     {% if DOCUTIL_CSS %}
         <link href="/{{ THEME_STATIC_DIR }}/css/html4css1.css" rel="stylesheet">
@@ -164,7 +165,7 @@
             {% if 'tipue_search' in PLUGINS %}
               <li><span>
                 <form class="navbar-search" action="{{ SEARCH_URL | default('/search.html') }}">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                  <input type="text" class="search-query" placeholder="Search" pattern=".{3,}" name="q" id="tipue_search_input" required>
                 </form></span>
               </li>
             {% endif %}
@@ -218,7 +219,7 @@
 
 {% include 'includes/footer.html' %}
 
-<script src="/{{ THEME_STATIC_DIR }}/js/jquery.min.js"></script>
+
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/{{ THEME_STATIC_DIR }}/js/bootstrap.min.js"></script>
