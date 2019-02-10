@@ -156,7 +156,7 @@ http://www.tipue.com/search
      background-color: #f3f3f3;
      border: none;
      padding: 9px 6px 10px 26px;
-     height: 56px;
+     height: 50px;
      border-radius: 3px;
 	-moz-appearance: none;
 	-webkit-appearance: none;
@@ -164,7 +164,7 @@ http://www.tipue.com/search
      box-shadow: none;
 	outline: 0;
 	margin: 0;
-    background: #fff url(img/search.png) no-repeat 9px 21px;
+    background: #fff url(img/search.png) no-repeat 9px 18px;
 }
 .tipue_search_button
 {
