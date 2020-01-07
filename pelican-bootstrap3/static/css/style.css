@@ -239,3 +239,8 @@ figure.floatcenter, .align-center {
 .gap-left {
   margin-left: 10px;
 }
+span.art-info {
+    padding-right: 5px;
+    padding-left: 5px;
+    border-left: double;
+}
