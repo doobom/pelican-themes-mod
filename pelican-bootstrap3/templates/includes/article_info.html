@@ -7,7 +7,7 @@
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
             <span class="art-info modified">
-                <i class="fa fa-edit fa-m"></i> <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+                <i class="fa fa-edit fa-m"></i> <time datetime="{{ article.modified.isoformat() }}"> {{ article.modified.strftime('%Y/%m/%d') }}</time>
             </span>
         {% endif %}
     {% endif %}
