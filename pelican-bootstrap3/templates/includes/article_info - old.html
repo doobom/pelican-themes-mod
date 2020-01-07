@@ -1,13 +1,15 @@
 <footer class="post-info">
     {% if SHOW_DATE_CREATED %}
+        <span class="label label-default">Date</span>
         <span class="published">
-            <i class="fa fa-pen fa-m"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
+            <i class="fa fa-calendar"></i><time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }}</time>
         </span>
     {% endif %}
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
+          <span class="label label-default">{{ _('Modified') }}</span>
             <span class="modified">
-                <i class="fa fa-edit fa-m"></i> <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
+                <i class="fa fa-calendar"></i><time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
             </span>
         {% endif %}
     {% endif %}
@@ -21,17 +23,19 @@
 
     {% if SHOW_ARTICLE_AUTHOR %}
         {% if article.author %}
-            <i class="fa fa-user fa-m"></i> <a href="/{{ article.author.url }}"> {{ article.author }}</a>
+            <span class="label label-default">{{ _('By') }}</span>
+            <a href="/{{ article.author.url }}"><i class="fa fa-user"></i> {{ article.author }}</a>
         {% endif %}
     {% endif %}
 
     {% if SHOW_ARTICLE_CATEGORY %}
-        <i class="fa fa-folder fa-m"></i> <a href="/{{ article.category.url }}">{{ article.category }}</a>
+        <span class="label label-default">{{ _('Category') }}</span>
+        <a href="/{{ article.category.url }}">{{ article.category }}</a>
     {% endif %}
 
     {% if PDF_PROCESSOR %}
         <span class="label label-default">
-            <i class="fa fa-file fa-m"></i> <a href="/pdf/{{ article.slug }}.pdf">PDF</a>
+            <a href="/pdf/{{ article.slug }}.pdf">PDF</a>
         </span>
     {% endif %}
 
