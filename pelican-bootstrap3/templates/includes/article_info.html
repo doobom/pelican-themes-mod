@@ -1,7 +1,7 @@
 <footer class="post-info">
     {% if SHOW_DATE_CREATED %}
         <span class="art-info published">
-            <i class="fa fa-pen fa-m"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date.strftime('%Y/%m/%d') }}</time>
+            <i class="fa fa-pen fa-m"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.date.strftime('%Y/%m/%d') }}</time>
         </span>
     {% endif %}
     {% if SHOW_DATE_MODIFIED %}
