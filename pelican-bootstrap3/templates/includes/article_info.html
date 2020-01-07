@@ -1,7 +1,7 @@
 <footer class="post-info">
     {% if SHOW_DATE_CREATED %}
         <span class="art-info published">
-            <i class="fa fa-pen fa-m"></i> <time datetime="{{ article.date.strftime('%Y/%m/%d') }}"> {{ article.locale_date }}</time>
+            <i class="fa fa-pen fa-m"></i> <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date.strftime('%Y/%m/%d') }}</time>
         </span>
     {% endif %}
     {% if SHOW_DATE_MODIFIED %}
@@ -14,7 +14,7 @@
 
     {% if SHOW_SERIES %}
         {% if article.series %}
-            <span class="art-info series">{{ _('Series') }}</span>
+            <span class="art-info series"><i class="fa fa-microscope fa-m"></i>{{ _('Series') }}</span>
             Part {{ article.series.index}} of {{ article.series.name }}
         {% endif %}
     {% endif %}
