@@ -6,7 +6,7 @@
     {% endif %}
     {% if SHOW_DATE_MODIFIED %}
         {% if article.modified %}
-            <span class="modified">
+            <span class="article-info modified">
                 <i class="fa fa-edit fa-m"></i> <time datetime="{{ article.modified.isoformat() }}"> {{ article.locale_modified }}</time>
             </span>
         {% endif %}
@@ -14,28 +14,34 @@
 
     {% if SHOW_SERIES %}
         {% if article.series %}
-            <span class="label label-default">{{ _('Series') }}</span>
+            <span class="article-info series">{{ _('Series') }}</span>
             Part {{ article.series.index}} of {{ article.series.name }}
         {% endif %}
     {% endif %}
 
     {% if SHOW_ARTICLE_AUTHOR %}
         {% if article.author %}
-            <i class="fa fa-user fa-m"></i> <a href="/{{ article.author.url }}"> {{ article.author }}</a>
+            <span class="article-info author">
+                <i class="fa fa-user fa-m"></i> <a href="/{{ article.author.url }}"> {{ article.author }}</a>
+            </span>
         {% endif %}
     {% endif %}
 
     {% if SHOW_ARTICLE_CATEGORY %}
-        <i class="fa fa-folder fa-m"></i> <a href="/{{ article.category.url }}">{{ article.category }}</a>
-    {% endif %}
-
-    {% if PDF_PROCESSOR %}
-        <span class="label label-default">
-            <i class="fa fa-file fa-m"></i> <a href="/pdf/{{ article.slug }}.pdf">PDF</a>
+        <span class="article-info category">
+            <i class="fa fa-folder fa-m"></i> <a href="/{{ article.category.url }}">{{ article.category }}</a>
         </span>
     {% endif %}
 
     {% include 'includes/taglist.html' %}
+
+    {% if PDF_PROCESSOR %}
+        <span class="article-info pdf-processor">
+            <i class="fa fa-file fa-m"></i> <a href="/pdf/{{ article.slug }}.pdf">PDF</a>
+        </span>
+    {% endif %}
+
+    
     {% import 'includes/translations.html' as translations with context %}
     {{ translations.translations_for(article) }}
 </footer><!-- /.post-info -->
